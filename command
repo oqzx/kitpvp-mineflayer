@@ -209,24 +209,3 @@ const commands = [
     },
 ];
 
-const rest = new REST({ version: '10' }).setToken('MTIwMjIyODYzNTY3OTg1ODcyOA.GHWORR.ecbTIwr6fUxPKu2ymng3_NBIP5LhkEbMtbPUNU');
-
-(async () => {
-    try {
-        console.log('Registering slash commands...');
-        
-        await rest.put(
-            Routes.applicationGuildCommands('1202228635679858728', '823611769229541466'),
-            { body: commands }
-        );
-
-        console.log('Slash commands were registered successfully!');
-    } catch (error) {
-        console.error(`Error while registering slash commands: ${error}`);
-
-        // Log more details if available
-        if (error.data) {
-            console.error('Error data:', error.data);
-        }
-    }
-})();
